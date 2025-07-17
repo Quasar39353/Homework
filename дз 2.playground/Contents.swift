@@ -3,16 +3,28 @@ import UIKit
 //Задания 1 - 2:
 
 enum TimeOfYear: Int {
-    case winter = 1
-    case spring = 2
-    case summer = 3
-    case autumn = 4
+    case winter
+    case spring
+    case summer
+    case autumn
 }
 
 func monthТumber(number: Int ) -> TimeOfYear? {
-    return TimeOfYear(rawValue: number)
+    
+    switch number {
+    case 6...8:
+        return .summer
+    case 9...11:
+        return .autumn
+    case 12,1,2:
+        return .winter
+    case 3...5:
+        return .spring
+    default:
+        return nil
+    }
 }
-let resultMonthТumber = monthТumber(number: 1)
+let resultMonthТumber = monthТumber(number: 4)
 if let optionalResultMonthТumber = resultMonthТumber {
     print("Пора года: \(optionalResultMonthТumber)")
 }
